@@ -9,7 +9,7 @@
     vr-mode-ui="enabled: false"
     embedded 
     arjs='debugUIEnabled:false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; sourceType:webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; cameraParametersUrl: {{$cameraParametersUrl}}; patternRatio: 0.9; maxDetectionRate: 60;'
-    renderer="logarithmicDepthBuffer: true; precision: medium;">
+    {{-- renderer="logarithmicDepthBuffer: true; precision: medium;"> --}}
     <a-marker type="pattern" url="{{ $custommarker->pattern }}" smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
       <a-plane 
         position="0 0.2 0"
