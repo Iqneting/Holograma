@@ -11,3 +11,5 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /storage/installed
+/public/files/markers/*.png
+/public/files/markers/*.patt
