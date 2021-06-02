@@ -13,7 +13,7 @@
 
 // Auth
 Auth::routes([
-    'verify' => true, 
+    'verify' => false, 
     'register' => false,
     'reset' => true // password reset
 ]);
@@ -25,7 +25,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/ar/{scene}','ArController@browser');
 Route::get('/ar-test/{custommarker}','ArController@test');
 
-Route::middleware(['web', 'auth', 'verified', 'notblocked'])->group(function () {
+Route::middleware(['web', 'auth', 'notblocked'])->group(function () {
 
     // Dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');       
