@@ -40,8 +40,8 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                 'role' => $request->role
             ]);
-            event(new Registered($user));
-            $request->session()->flash('status', __('Registered'));
+            //event(new Registered($user));
+            //$request->session()->flash('status', __('Registered'));
         }
         return view('user.admin_add');
     }
