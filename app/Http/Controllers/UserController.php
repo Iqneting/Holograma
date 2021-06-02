@@ -34,14 +34,14 @@ class UserController extends Controller
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
                 'role' => ['required', 'numeric', 'in:0,1'],
             ]);
-            $user = User::create([
+            $user = User:git:create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => $request->role
             ]);
-            //event(new Registered($user));
-            //$request->session()->flash('status', __('Registered'));
+            // event(new Registered($user));
+            // $request->session()->flash('status', __('Registered'));
         }
         return view('user.admin_add');
     }
