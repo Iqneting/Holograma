@@ -27,6 +27,7 @@ class UserController extends Controller
 
     public function admin_add(Request $request) {
         $this->authorize('admin_add', User::class);
+        
         if($request->isMethod('post')) {
             $request->validate([
                 'name' => ['required', 'string', 'max:100'],
@@ -34,7 +35,7 @@ class UserController extends Controller
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
                 'role' => ['required', 'numeric', 'in:0,1'],
             ]);
-            $user = User:git:create([
+            $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
