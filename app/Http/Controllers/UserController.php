@@ -27,7 +27,6 @@ class UserController extends Controller
 
     public function admin_add(Request $request) {
         $this->authorize('admin_add', User::class);
-        
         if($request->isMethod('post')) {
             $request->validate([
                 'name' => ['required', 'string', 'max:100'],
