@@ -1,5 +1,5 @@
                 .dashboard_bg { 
-                    background: url("http://192.168.100.10/files/logo-holograma.png") center center no-repeat; 
+                    background: url("http://localhost/files/logo-holograma.png") center center no-repeat; 
                     background-size: 50%;
                 }
                 .holograma-btn, .holograma-btn:hover, .holograma-btn:focus {

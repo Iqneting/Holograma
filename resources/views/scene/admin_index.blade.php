@@ -34,7 +34,7 @@
 
   <div class="table-responsive">
       <table class="table table-bordered table-hover">
-        <caption>{{ __('Page :page of :pages. Total of :total scenes.', ['page' => $scenes->currentPage(), 'pages' => $scenes->lastPage(), 'total' => $scenes->total()]) }}</caption>
+        <caption>{{ __('Pagina :page de :pages. Total de :total escenas.', ['page' => $scenes->currentPage(), 'pages' => $scenes->lastPage(), 'total' => $scenes->total()]) }}</caption>
         <thead class="thead-light">
           <tr>
             <th scope="col">#ID</th>

@@ -26,7 +26,7 @@
 
   <div class="table-responsive">
       <table class="table table-bordered table-hover">
-        <caption>{{ __('Page :page of :pages. Total of :total custom markers.', ['page' => $custom_markers->currentPage(), 'pages' => $custom_markers->lastPage(), 'total' => $custom_markers->total()]) }}</caption>
+        <caption>{{ __('Pagina :page de :pages. Total de :total marcadores personalizados.', ['page' => $custom_markers->currentPage(), 'pages' => $custom_markers->lastPage(), 'total' => $custom_markers->total()]) }}</caption>
         <thead class="thead-light">
           <tr>
             <th scope="col">#ID</th>
