@@ -42,7 +42,7 @@
         <th scope="col">{{ __('Name') }}</th>
         <th scope="col">{{ __('E-mail') }}</th>
         <th scope="col">{{ __('Role') }}</th>
-        {{-- <th scope="col">{{ __('Status') }}</th> --}}
+        <th scope="col">{{ __('Status') }}</th>
         <th scope="col">{{ __('Registered') }}</th>
         <th scope="col">{{ __('Action') }}</th>
       </tr>
@@ -54,7 +54,7 @@
           <td>{{ $user->name }}</td>
           <td>{{ $user->email }}</td>
           <td>{{ ucfirst($user->role) }}</td>
-          {{-- <td><span class="badge badge-{{ $status[$user->status][1] }}">{{ $status[$user->status][0] }}</span></td> --}}
+          <td><span class="badge badge-{{ $status[$user->status][1] }}">{{ $status[$user->status][0] }}</span></td>
           <td>{{ substr($user->created_at, 0, 10) }}</td>
           <td>
               <ul class="list-inline">
