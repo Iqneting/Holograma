@@ -79,7 +79,7 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
 
     protected $attributes = [
         'role' => 1,
-        'status' => 0,
+        'status' => 1,
     ];
 
 

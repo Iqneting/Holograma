@@ -38,10 +38,13 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'role' => $request->role
+                'role' => $request->role,
+                'status'=> 1
             ]);
             // event(new Registered($user));
             // $request->session()->flash('status', __('Registered'));
+            $request->session()->flash('status', __('User add.'));
+            return redirect('/users'); 
         }
         return view('user.admin_add');
     }

@@ -133,6 +133,13 @@ class SceneController extends Controller
             }
         }
 
+        if($request->user()->role == 'editor'){
+            $data = Scene::where(user()->id, 'user_id');
+            if(count($data) > 3){
+                
+            }
+        }
+
         $scene->save();
         return response()->json(['response' => 'OK', 'scene' => $scene]);
     }
