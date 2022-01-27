@@ -11,12 +11,24 @@ class SceneController extends Controller
 {
 
     public function create(Request $request) {
-        // create scene
-        $scene = new Scene();
-        $scene->user_id = $request->user()->id;
-        $scene->save();
-
-        return redirect()->action('SceneController@edit', ['id' => $scene->id]);
+        // create 
+        if($request->user()->role == 'editor'){
+            $data = Scene::where('user_id', $request->user()->id)->count();
+            if($data < 5){
+                $scene = new Scene();
+                $scene->user_id = $request->user()->id;
+                $scene->save();
+                return redirect()->action('SceneController@edit', ['id' => $scene->id]);
+            } else {
+                $request->session()->flash('status', __('Scene editor create'));  
+                return redirect('/myscenes');
+            } 
+        } else {
+            $scene = new Scene();
+            $scene->user_id = $request->user()->id;
+            $scene->save();
+            return redirect()->action('SceneController@edit', ['id' => $scene->id]);
+        }
     }
 
 
@@ -90,7 +102,6 @@ class SceneController extends Controller
 
     public function addOrEdit(Request $request, Scene $scene=null)
     {
-        
         $this->authorize('edit', $scene);
 
         $validation = [
@@ -101,6 +112,7 @@ class SceneController extends Controller
             'editable' => 'sometimes|numeric|in:0,1'               // 0 - no, 1 - yes
         ];
 
+        
         // Publishing
         if($request->status == 1) {
             $validation['title'] = 'required|string|max:255';
@@ -132,14 +144,6 @@ class SceneController extends Controller
                 $scene->status = $request->status;
             }
         }
-
-        if($request->user()->role == 'editor'){
-            $data = Scene::where(user()->id, 'user_id');
-            if(count($data) > 3){
-                
-            }
-        }
-
         $scene->save();
         return response()->json(['response' => 'OK', 'scene' => $scene]);
     }
