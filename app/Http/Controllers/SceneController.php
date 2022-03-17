@@ -12,23 +12,28 @@ class SceneController extends Controller
 
     public function create(Request $request) {
         // create 
-        if($request->user()->role == 'editor'){
-            $data = Scene::where('user_id', $request->user()->id)->count();
-            if($data < 5){
-                $scene = new Scene();
-                $scene->user_id = $request->user()->id;
-                $scene->save();
-                return redirect()->action('SceneController@edit', ['id' => $scene->id]);
-            } else {
-                $request->session()->flash('status', __('Scene editor create'));  
-                return redirect('/myscenes');
-            } 
-        } else {
-            $scene = new Scene();
-            $scene->user_id = $request->user()->id;
-            $scene->save();
-            return redirect()->action('SceneController@edit', ['id' => $scene->id]);
-        }
+        $scene = new Scene();
+        $scene->user_id = $request->user()->id;
+        $scene->save();
+
+        return redirect()->action('SceneController@edit', ['id' => $scene->id]);
+        // if($request->user()->role == 'editor'){
+        //     $data = Scene::where('user_id', $request->user()->id)->count();
+        //     if($data < 5){
+        //         $scene = new Scene();
+        //         $scene->user_id = $request->user()->id;
+        //         $scene->save();
+        //         return redirect()->action('SceneController@edit', ['id' => $scene->id]);
+        //     } else {
+        //         $request->session()->flash('status', __('Scene editor create'));  
+        //         return redirect('/myscenes');
+        //     } 
+        // } else {
+        //     $scene = new Scene();
+        //     $scene->user_id = $request->user()->id;
+        //     $scene->save();
+        //     return redirect()->action('SceneController@edit', ['id' => $scene->id]);
+        // }
     }
 
 
